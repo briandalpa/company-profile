@@ -14,6 +14,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 // import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { DarkmodeToggle } from "../common/darkmode-toggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -46,18 +47,19 @@ export default function Navbar() {
         isScrolled ? "bg-background shadow-sm" : "bg-background"
       )}
     >
-      <div className="flex w-full items-center justify-between px-37 py-6">
+      <div className="flex items-center justify-between px-8 py-6">
         {" "}
-        <Link href="/">
-          <Image
-            src="/comac-logo.svg"
-            alt="company logo"
-            width={60}
-            height={60}
-            className=""
-          />
-        </Link>
-        <div className="flex w-full items-center justify-center gap-3 hover:cursor-pointer">
+        <div className="flex w-1/3 items-center">
+          <Link href="/">
+            <Image
+              src="/comac-logo.svg"
+              alt="company logo"
+              width={50}
+              height={50}
+            />
+          </Link>
+        </div>
+        <div className="flex w-1/3 justify-center">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -151,10 +153,11 @@ export default function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="hidden lg:flex items-center space-x-3">
+        <div className="flex w-1/3 items-center justify-end gap-4">
           <Button className="bg-primary hover:bg-primary/90">
             <Link href="/dashboard">Create Blog</Link>
           </Button>
+          <DarkmodeToggle />
         </div>
       </div>
     </nav>

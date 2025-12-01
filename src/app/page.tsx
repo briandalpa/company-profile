@@ -101,7 +101,7 @@ export default function HomePage() {
                 className="text-center space-y-3 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-light rounded-xl">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl">
                   <stat.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
