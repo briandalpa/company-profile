@@ -44,7 +44,7 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background shadow-sm" : "bg-background"
+        isScrolled ? "bg-background shadow-sm" : "bg-transparent"
       )}
     >
       <div className="flex items-center justify-between px-8 py-6">
