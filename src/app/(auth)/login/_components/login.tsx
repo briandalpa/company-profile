@@ -10,24 +10,52 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Lock } from "lucide-react";
+import { Loader2, Lock } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
-import { LoginForm, loginSchema } from "@/validations/auth-validation";
+import { LoginForm, loginSchemaForm } from "@/validations/auth-validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { INITIAL_LOGIN_FORM } from "@/constants/auth-constant";
+import {
+  INITIAL_LOGIN_FORM,
+  INITIAL_STATE_LOGIN_FORM,
+} from "@/constants/auth-constant";
+import { startTransition, useActionState, useEffect } from "react";
+import { login } from "../action";
+import { toast } from "sonner";
 
 export default function Login() {
   const form = useForm<LoginForm>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(loginSchemaForm),
     defaultValues: INITIAL_LOGIN_FORM,
   });
 
+  const [loginState, loginAction, isPendingLogin] = useActionState(
+    login,
+    INITIAL_STATE_LOGIN_FORM
+  );
+
   const onSubmit = form.handleSubmit(async (data) => {
-    console.log(data);
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    startTransition(() => {
+      loginAction(formData);
+    });
   });
 
+  useEffect(() => {
+    if (loginState?.status === "error") {
+      toast.error("Login Failed", {
+        description: loginState.errors?._form?.[0],
+      });
+      startTransition(() => {
+        loginAction(null);
+      });
+    }
+  }, [loginState]);
+
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-64px)] bg-background">
+    <div className="flex items-center justify-center min-h-[calc(100vh-100px)] bg-background">
       <Card className="w-full max-w-md">
         <CardHeader>
           <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
@@ -84,7 +112,7 @@ export default function Login() {
               type="submit"
               className="w-full bg-primary hover:bg-primary/90"
             >
-              Login
+              {isPendingLogin ? <Loader2 className="animate-spin" /> : "Login"}
             </Button>
             <CardFooter className="flex flex-col items-center">
               <p className="text-sm text-muted-foreground">
