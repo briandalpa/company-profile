@@ -151,7 +151,7 @@ export default function TeamsPage() {
             <div className="pt-4">
               <a
                 href="mailto:careers@comac.cc"
-                className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
               >
                 View Open Positions
               </a>

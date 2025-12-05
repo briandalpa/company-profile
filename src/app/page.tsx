@@ -76,7 +76,7 @@ export default function HomePage() {
                   asChild
                 >
                   <Link href="/products">
-                    Explore Services <ArrowRight className="ml-2 w-4 h-4" />
+                    Explore Services <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
@@ -170,7 +170,7 @@ export default function HomePage() {
                 </p>
                 <Button size="lg" variant="secondary" asChild>
                   <Link href="/blog">
-                    Get in Touch <ArrowRight className="ml-2 w-4 h-4" />
+                    Get in Touch <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>
               </div>

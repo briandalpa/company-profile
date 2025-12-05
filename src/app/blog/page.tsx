@@ -149,7 +149,12 @@ export default function BlogPage() {
               >
                 <CardContent className="p-0">
                   <div className="h-48 bg-linear-to-br from-primary/20 to-accent-green/20 relative overflow-hidden">
-                    <Image src={heroImage} alt="airplane" fill className="" />
+                    <Image
+                      src={heroImage}
+                      alt="airplane"
+                      fill
+                      className="object-cover"
+                    />
                     <div className="absolute inset-0 bg-linear-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
@@ -214,7 +219,7 @@ export default function BlogPage() {
               </p>
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/blog/create">
-                  Write a Post <ArrowRight className="ml-2 w-4 h-4" />
+                  Write a Post <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
             </CardContent>
