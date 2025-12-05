@@ -62,5 +62,5 @@ export async function login(
   }
 
   revalidatePath("/", "layout");
-  redirect("/dashboard");
+  redirect("/blog/create");
 }

@@ -13,19 +13,20 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { DarkmodeToggle } from "../common/darkmode-toggle";
 
-import { Menu } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { DarkmodeToggle } from "@/components/common/darkmode-toggle";
+import { signOut } from "@/actions/auth-action";
 
-export default function Navbar() {
+export default function DashboardNavbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const pathname = usePathname();
 
@@ -91,8 +92,12 @@ export default function Navbar() {
 
         {/* Desktop Right Section */}
         <div className="hidden lg:flex w-1/3 items-center justify-end gap-4">
-          <Button className="bg-secondary hover:bg-primary/90">
-            <Link href="/blog/create">Create Blog</Link>
+          <Button
+            className="bg-destructive hover:bg-destructive/90 dark:hover:bg-destructive/60 dark:bg-destructive/70 rounded-full hover:cursor-pointer"
+            onClick={() => signOut()}
+          >
+            <LogOut />
+            <Link href="/">Log out</Link>
           </Button>
           <DarkmodeToggle />
         </div>
@@ -141,10 +146,14 @@ export default function Navbar() {
                 {/* Buttons + Dark Mode */}
                 <div className="mt-8 border-t pt-6 space-y-3 px-4">
                   <Button
-                    className="w-full bg-secondary hover:bg-primary/90"
+                    className="w-full bg-destructive rounded-full"
                     asChild
+                    onClick={() => signOut()}
                   >
-                    <Link href="/blog/create">Create Blog</Link>
+                    <Link href="/blog/create">
+                      <LogOut />
+                      Log Out
+                    </Link>
                   </Button>
                   <div className="absolute bottom-4 left-4">
                     <DarkmodeToggle />

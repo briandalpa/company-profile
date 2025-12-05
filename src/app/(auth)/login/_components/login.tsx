@@ -52,14 +52,14 @@ export default function Login() {
         loginAction(null);
       });
     }
-  }, [loginState]);
+  }, [loginState, loginAction]);
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-100px)] bg-background">
+    <div className="flex items-center justify-center min-h-[calc(100vh-100px)] bg-background mx-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
-            <Lock className="w-6 h-6 text-primary" />
+          <div className="flex items-center justify-center w-12 h-12 bg-primary dark:bg-primary rounded-xl mx-auto mb-4">
+            <Lock className="w-6 h-6 text-background dark:text-foreground" />
           </div>
           <CardTitle className="text-2xl text-center">Login Required</CardTitle>
           <p className="text-center text-muted-foreground">

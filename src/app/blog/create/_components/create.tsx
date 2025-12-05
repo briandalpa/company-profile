@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
-export default function Dashboard() {
+export default function Create() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h- pt-10">
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="mb-8">
@@ -58,16 +59,13 @@ export default function Dashboard() {
                     className="resize-none border-border"
                     required
                   />
-                  <p className="text-sm text-muted-foreground">
-                    Supports markdown formatting
-                  </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <div className="flex flex-col sm:flex-row gap-4 pt-1">
                   <Button
                     type="submit"
                     size="lg"
-                    className="flex-1 bg-primary hover:bg-primary/90"
+                    className="flex-1 bg-primary hover:bg-primary/90 py-2"
                   >
                     Publish Post
                   </Button>
@@ -76,9 +74,9 @@ export default function Dashboard() {
                     size="lg"
                     variant="outline"
                     // onClick={() => navigate("/blog")}
-                    className="flex-1"
+                    className="flex-1 py-2"
                   >
-                    Cancel
+                    <Link href="/">Cancel</Link>
                   </Button>
                 </div>
               </form>

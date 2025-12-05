@@ -12,6 +12,10 @@ import c919Image from "@/assets/c919-aircraft.png";
 import c929Image from "@/assets/c929-aircraft.png";
 import Image from "next/image";
 
+export const metadata = {
+  title: "COMAC | Products & Service",
+};
+
 export default function ProductsPage() {
   const products = [
     {
@@ -192,22 +196,22 @@ export default function ProductsPage() {
 
                   <CardContent className="p-8 lg:p-12 flex flex-col justify-center space-y-6 text-primary hover:text-secondary transition-all duration-300">
                     <div>
-                      <h3 className="text-3xl font-bold mb-4 hidden md:block">
+                      <h3 className="text-3xl font-bold mb-4 hidden md:block dark:text-secondary">
                         {product.name}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed dark:text-foreground">
                         {product.description}
                       </p>
                     </div>
 
                     <div className="space-y-3 pt-6 border-t border-border">
-                      <h4 className="font-semibold text-sm uppercase tracking-wider text-primary">
+                      <h4 className="font-semibold text-sm uppercase tracking-wider text-primary dark:text-secondary">
                         Key Specifications
                       </h4>
                       {product.specifications.map((spec, idx) => (
                         <div key={idx} className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                          <span className="text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0 dark:bg-secondary" />
+                          <span className="text-sm text-muted-foreground dark:text-foreground">
                             {spec}
                           </span>
                         </div>

@@ -213,7 +213,7 @@ export default function BlogPage() {
                 Create your own blog post and contribute to the conversation.
               </p>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/dashboard">
+                <Link href="/blog/create">
                   Write a Post <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>

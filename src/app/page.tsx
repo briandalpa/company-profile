@@ -14,6 +14,10 @@ import heroImage from "@/assets/hero-aircraft.png";
 import Link from "next/link";
 import Image from "next/image";
 
+export const metadata = {
+  title: "COMAC | Home",
+};
+
 export default function HomePage() {
   const stats = [
     { icon: Plane, value: "3", label: "Aircraft Programs" },
@@ -101,8 +105,8 @@ export default function HomePage() {
                 className="text-center space-y-3 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl">
-                  <stat.icon className="w-6 h-6 text-primary" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl dark:bg-secondary/10">
+                  <stat.icon className="w-6 h-6 text-primary dark:text-secondary" />
                 </div>
                 <div>
                   <div className="text-3xl lg:text-4xl font-bold text-foreground">

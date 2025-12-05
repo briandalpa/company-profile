@@ -10,6 +10,10 @@ import liImage from "@/assets/li-ling.jpg";
 import zhangImage from "@/assets/zhang-xiaoguang.jpg";
 import wuImage from "@/assets/wu-wensheng.jpg";
 
+export const metadata = {
+  title: "COMAC | Our Team",
+};
+
 interface CompanyManagement {
   name: string;
   role: string;
