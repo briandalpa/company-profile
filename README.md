@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# COMAC Company Profile – Redesign (Unofficial)
 
-## Getting Started
+**This is an unofficial redesign created for educational and portfolio purposes. It is not affiliated with, endorsed by, or connected to COMAC.**
 
-First, run the development server:
+## ✨ Overview
+
+This project is a complete frontend redesign of the COMAC corporate website. It demonstrates modern web development practices using Next.js, TypeScript, TailwindCSS, and shadcn/ui. The redesign keeps COMAC’s original color palette for brand consistency while introducing a new layout, smoother structure, and a more modern interface.
+
+## 📄 Pages & Features
+
+**Home**  
+Landing page with hero section and company highlights.
+
+**About Us**  
+Company background and mission information.
+
+**Products & Service**  
+Overview of COMAC’s aircraft, products, and services.
+
+**Teams**  
+Team and leadership presentation.
+
+**Blog**  
+Static blog listing page (no backend data).
+
+**Create Blog**  
+Admin only page with a blog creation form.  
+Content is not stored. This page is protected behind authentication.
+
+**Login**  
+Authentication handled via Supabase Auth.  
+Only logged-in users can access the Create Blog page.  
+No public registration flow.
+
+## 🛠️ Tech Stack
+
+**- Next.js 16.0.7 (App Router)**  
+**- TypeScript + React**  
+**- TailwindCSS**  
+**- shadcn/ui with custom “tweakcn” components**  
+**- Supabase Authentication** for login gating  
+**- Zod** for login form validation
+
+## 🔐 Authentication Flow
+
+Unauthenticated users may browse all public pages.  
+Accessing `/blog/create` redirects to the login page.  
+After successful login, users are taken directly to the Create Blog page.
+
+## 🧩 Project Structure
+
+Built using the Next.js App Router with a global layout and an additional nested layout inside the blog creation route. Environment variables are managed via a `.env` file to store Supabase keys.
+
+## 🚀 Running the Project Locally
 
 ```bash
+git clone https://github.com/briandalpa/company-profile
+cd company-profile
+npm install
+cp .env.example .env   # or create .env manually
+# Add your Supabase URL and public anon key
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚠️ Disclaimer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All company names, branding, logos, and related materials belong to COMAC.  
+This redesign is for educational and portfolio purposes only.

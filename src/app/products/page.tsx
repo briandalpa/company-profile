@@ -13,7 +13,7 @@ import c929Image from "@/assets/c929-aircraft.png";
 import Image from "next/image";
 
 export const metadata = {
-  title: "COMAC | Products & Service",
+  title: "COMAC | Products & Services",
 };
 
 export default function ProductsPage() {
