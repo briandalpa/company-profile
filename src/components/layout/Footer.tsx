@@ -10,17 +10,17 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/">
               <Image
-                src="/comac-logo.svg"
+                src="/aervi-logo.svg"
                 alt="company logo"
                 width={50}
-                height={10}
-                className="mb-4"
+                height={50}
+                className="mb-2"
               />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Commercial Aircraft Corporation of China (COMAC) develops and
-              manufactures trunk liners and regional jets, advancing global
-              aviation with innovation, safety, and reliability.
+              AERVI is a Singapore-based aerospace engineering company designing
+              and manufacturing next-generation commercial aircraft with a focus
+              on efficiency, safety, and sustainability.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
                   href="/products"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Products & Service
+                  Products & Services
                 </Link>
               </li>
               <li>
@@ -67,11 +67,11 @@ export default function Footer() {
               Products & Service
             </h3>
             <ul className="space-y-3">
-              <li className="text-sm text-muted-foreground">COMAC C909</li>
-              <li className="text-sm text-muted-foreground">COMAC C919</li>
-              <li className="text-sm text-muted-foreground">COMAC C929</li>
+              <li className="text-sm text-muted-foreground">AERVI A90</li>
+              <li className="text-sm text-muted-foreground">AERVI A190</li>
+              <li className="text-sm text-muted-foreground">AERVI A300</li>
               <li className="text-sm text-muted-foreground">
-                Operation Support & Services
+                Engineering & Operational Support
               </li>
             </ul>
           </div>
@@ -81,15 +81,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-                <span>COMAC Headquarters, Shanghai, China</span>
+                <span>AERVI Headquarters, Singapore</span>
               </li>
               <li className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 shrink-0 text-primary" />
-                <span>+86 21 2088 8888</span>
+                <span>+65 6123 4567</span>
               </li>
               <li className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 shrink-0 text-primary" />
-                <span>customerservice@comac.cc</span>
+                <span>contact@aervi.aero</span>
               </li>
             </ul>
           </div>
@@ -98,11 +98,11 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © 2025 COMAC. All rights reserved.
+              © 2025 AERVI. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground mt-2">
-              Certified by CAAC • Operating under Chinese Civil Aviation
-              Regulations (CCAR)
+              Designed under international airworthiness standards • Global
+              operations
             </p>
             <div className="flex space-x-6">
               <Link

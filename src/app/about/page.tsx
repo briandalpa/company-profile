@@ -1,74 +1,78 @@
 import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import aboutImage from "@/assets/about-facility.jpg";
+import aboutImage from "@/assets/about-facility.png";
 import Image from "next/image";
+
+export const metadata = {
+  title: "AERVI | About Us",
+};
 
 export default function AboutPage() {
   const milestones = [
     {
-      year: "2008",
-      title: "COMAC Founded",
+      year: "2009",
+      title: "AERVI Founded",
       description:
-        "Commercial Aircraft Corporation of China, Ltd. officially established in Shanghai.",
+        "AERVI is established in Singapore as an aerospace engineering and manufacturing company.",
     },
     {
-      year: "2010",
-      title: "C909 Maiden Flight",
+      year: "2012",
+      title: "First Regional Jet Program",
       description:
-        "China's first new-generation regional jet successfully completes its maiden flight.",
+        "AERVI launches its first in-house regional aircraft development program.",
     },
     {
-      year: "2015",
-      title: "C919 Rollout",
+      year: "2016",
+      title: "Digital Manufacturing Breakthrough",
       description:
-        "China's first homegrown large passenger aircraft is unveiled to the world.",
+        "Introduction of advanced digital production and smart assembly systems.",
     },
     {
-      year: "2017",
-      title: "C919 Maiden Flight",
+      year: "2019",
+      title: "Prototype Flight Tests",
       description:
-        "The C919 completes its first successful test flight, marking a major milestone.",
+        "Successful completion of multiple prototype test flights for next-generation platforms.",
     },
     {
-      year: "2022",
-      title: "C909 & C919 Deliveries",
+      year: "2021",
+      title: "First Commercial Deliveries",
       description:
-        "ARJ21 enters stable commercial operation; the first C919 is delivered to China Eastern Airlines.",
+        "Initial aircraft deliveries mark AERVI's entry into commercial aviation operations.",
     },
     {
       year: "2023",
-      title: "C919 Commercial Service",
+      title: "Sustainable Aviation Initiative",
       description:
-        "C919 completes its first commercial passenger flight, entering official market operation.",
+        "Launch of company-wide programs focused on low-emission and fuel-efficient aircraft technologies.",
     },
     {
       year: "2024",
-      title: "Global Market Expansion",
+      title: "Global Partnerships Expansion",
       description:
-        "International interest increases; COMAC opens and expands global offices and cooperation programs.",
+        "AERVI expands international partnerships and technical collaboration networks.",
     },
   ];
 
   const values = [
     {
-      title: "Mission-Driven",
+      title: "Precision Engineering",
       description:
-        "Committed to letting China-made large aircraft fly in the blue sky.",
+        "Building aircraft through disciplined engineering, rigorous testing, and uncompromising standards.",
     },
     {
-      title: "Safety & Responsibility",
+      title: "Safety by Design",
       description:
-        "Building aircraft that prioritize safety, reliability, and public trust.",
+        "Embedding safety, reliability, and resilience into every stage of development.",
     },
     {
-      title: "Perseverance",
+      title: "Long-Term Vision",
       description:
-        "Guided by the spirit of 'never give up' throughout long-term development cycles.",
+        "Investing in future technologies and capabilities beyond short-term industry demands.",
     },
     {
-      title: "Innovation & Advancement",
+      title: "Sustainable Innovation",
       description:
-        "Pursuing breakthroughs to make commercial aviation more efficient, economical, and sustainable.",
+        "Advancing cleaner, smarter aviation through responsible materials and energy-efficient design.",
     },
   ];
 
@@ -77,20 +81,19 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">About COMAC</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">About AERVI</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Commercial Aircraft Corporation of China, Ltd. (COMAC), founded in
-              2008 in Shanghai, is China&apos;s primary developer of large
-              passenger aircraft. The company oversees the design,
-              manufacturing, testing, and global support of trunk liner and
-              regional jet programs, advancing safe, economical, and
-              environmentally friendly commercial aviation.
+              AERVI (Aero Engineering & Research for Visionary Innovation) is a
+              Singapore-based aerospace engineering company founded in 2009. The
+              company designs, manufactures, and supports next-generation
+              commercial aircraft, focusing on efficiency, safety, and
+              sustainable aviation solutions for global markets.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-2xl">
             <Image
               src={aboutImage}
-              alt="COMAC manufacturing facility"
+              alt="AERVI advanced manufacturing facility"
               className="w-full h-[400px] lg:h-[500px] object-cover"
             />
           </div>
@@ -103,10 +106,9 @@ export default function AboutPage() {
             <div className="space-y-6">
               <h2 className="text-3xl lg:text-4xl font-bold">Our Mission</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To let China-made large aircraft fly in the blue sky by
-                developing safe, cost-effective, comfortable, and
-                environmentally friendly commercial aircraft that meet global
-                aviation needs.
+                To design and deliver reliable, efficient, and environmentally
+                responsible aircraft that connect regions, support growth, and
+                advance global aviation.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 pt-4">
                 {values.map((value, index) => (
@@ -127,23 +129,25 @@ export default function AboutPage() {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    To deliver safer, more economical, comfortable, and
-                    environment-friendly commercial aircraft, and to build COMAC
-                    into a globally competitive aerospace manufacturer.
+                    To become a globally respected aerospace manufacturer known
+                    for engineering excellence, sustainable innovation, and
+                    trusted aircraft platforms.
                   </p>
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
                     <div>
-                      <div className="text-3xl font-bold text-primary">15+</div>
+                      <div className="text-3xl font-bold text-primary dark:text-secondary">
+                        15+
+                      </div>
                       <div className="text-sm text-muted-foreground">
                         Years Experience
                       </div>
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-primary">
-                        10K+
+                      <div className="text-3xl font-bold text-primary dark:text-secondary">
+                        2,500+
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Team Members
+                        Global Team Members
                       </div>
                     </div>
                   </div>
@@ -159,8 +163,8 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Journey</h2>
             <p className="text-lg text-muted-foreground">
-              Key milestones in COMAC&apos;s evolution as a global aerospace
-              leader
+              Key milestones in AERVI&apos;s growth as a global aerospace
+              innovator
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -179,7 +183,7 @@ export default function AboutPage() {
                     <Card className="hover:shadow-lg transition-all duration-300">
                       <CardContent className="p-6">
                         <div className="flex items-baseline justify-between mb-2">
-                          <span className="text-2xl font-bold text-primary">
+                          <span className="text-2xl font-bold text-primary dark:text-secondary">
                             {milestone.year}
                           </span>
                         </div>
@@ -204,16 +208,17 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-3xl lg:text-4xl font-bold">Our Culture</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              COMAC&apos;s culture is built on long-term vision, innovation, and
-              the drive to strengthen China&apos;s aviation industry. The “Four
-              Long-Terms” and a spirit of perseverance guide every stage of
-              aircraft development.
+              AERVI&apos;s culture is built on long-term vision, engineering
+              discipline, and a commitment to advancing global aviation. A
+              mindset of continuous improvement guides every stage of aircraft
+              design and development.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With teams across research, manufacturing, and global operations,
-              COMAC fosters collaboration, creativity, and technical excellence.
-              The company is committed to shaping the future of commercial
-              aviation with safe and reliable aircraft.
+              With teams across research, manufacturing, and international
+              operations, AERVI fosters collaboration, creativity, and technical
+              excellence. The company is committed to shaping the future of
+              commercial aviation through safe, reliable, and forward-looking
+              aircraft solutions.
             </p>
           </div>
         </div>

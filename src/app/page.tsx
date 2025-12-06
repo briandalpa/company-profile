@@ -15,34 +15,34 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "COMAC | Home",
+  title: "AERVI | Home",
 };
 
 export default function HomePage() {
   const stats = [
     { icon: Plane, value: "3", label: "Aircraft Programs" },
-    { icon: BadgeCheck, value: "176+", label: "Built Aircraft (C909)" },
-    { icon: Handshake, value: "1,000+", label: "Narrow-body Jet Orders" },
-    { icon: Award, value: "17 Years", label: "Aerospace Heritage" },
+    { icon: BadgeCheck, value: "180+", label: "Aircraft Delivered" },
+    { icon: Handshake, value: "1,200+", label: "Global Orders" },
+    { icon: Award, value: "15+ Years", label: "Engineering Excellence" },
   ];
 
   const services = [
     {
       title: "Aircraft Design & Engineering",
       description:
-        "End-to-end design of trunk liners and regional jets, built to global airworthiness standards.",
+        "End-to-end aircraft design for regional and narrow-body platforms, engineered to international airworthiness standards.",
       icon: Settings,
     },
     {
       title: "Advanced Manufacturing",
       description:
-        "Integrated assembly and production across COMAC's nationwide manufacturing centers.",
+        "Integrated digital manufacturing and final assembly across AERVI's smart production facilities.",
       icon: Factory,
     },
     {
       title: "Research & Innovation",
       description:
-        "Continuous development of new technologies for safer, greener, and more efficient aviation.",
+        "Frontier research in sustainable materials, aerodynamics, and next-generation flight systems.",
       icon: Lightbulb,
     },
   ];
@@ -54,20 +54,22 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span>Shaping China&apos;s Commercial Aviation</span>
+              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary dark:text-secondary dark:bg-secondary/10">
+                <span className="w-2 h-2 bg-primary dark:bg-secondary rounded-full animate-pulse" />
+                <span>Powering Singapore&apos;s Aviation Future</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 Crafting the Future of{" "}
                 <span className="text-secondary">Aviation</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Commercial Aircraft Corporation of China (COMAC) develops and
-                delivers modern commercial aircraft designed to meet global
-                standards for safety, efficiency, comfort, and environmental
-                performance. With innovation and long-term commitment at our
-                core, we are advancing the future of aviation.
+                AERVI (Aero Engineering & Research for Visionary Innovation) is
+                a Singapore-based aerospace engineering company focused on the
+                design, manufacturing, and advancement of next-generation
+                commercial aircraft. Through precision engineering, digital
+                manufacturing, and a commitment to sustainable innovation, AERVI
+                delivers aircraft platforms built for efficiency, reliability,
+                and global connectivity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -89,7 +91,7 @@ export default function HomePage() {
               <Image
                 src={heroImage}
                 alt="Modern commercial aircraft"
-                className="relative w-full h-auto"
+                className="relative w-full h-auto rounded-xl shadow-xl"
               />
             </div>
           </div>
@@ -129,8 +131,8 @@ export default function HomePage() {
               Our Expertise
             </h2>
             <p className="text-lg text-muted-foreground">
-              Comprehensive capabilities spanning aircraft design,
-              manufacturing, and aviation technology development
+              Integrated capabilities across aircraft engineering, smart
+              manufacturing, and next-generation aerospace technologies
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -164,9 +166,10 @@ export default function HomePage() {
                   Ready to Take Flight?
                 </h2>
                 <p className="text-lg text-primary-foreground/90 mb-8">
-                  Be part of the next chapter in global aviation. Explore our
-                  aircraft programs and see how COMAC is redefining the
-                  commercial aerospace landscape.
+                  Join the new era of intelligent aviation. Discover how AERVI
+                  is shaping the future of commercial flight through advanced
+                  engineering, sustainable manufacturing, and bold technological
+                  vision.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
                   <Link href="/blog">

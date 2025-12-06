@@ -1,6 +1,6 @@
-# COMAC Company Profile – Redesign (Unofficial)
+# AERVI Company Profile – COMAC Redesign (Unofficial)
 
-**This is an unofficial redesign created for educational and portfolio purposes. It is not affiliated with, endorsed by, or connected to COMAC.**
+**This is an unofficial redesign created for educational and portfolio purposes.**
 
 ## ✨ Overview
 
@@ -15,7 +15,7 @@ Landing page with hero section and company highlights.
 Company background and mission information.
 
 **Products & Service**  
-Overview of COMAC’s aircraft, products, and services.
+Overview of AERVI’s aircraft, products, and services.
 
 **Teams**  
 Team and leadership presentation.
@@ -39,7 +39,7 @@ No public registration flow.
 **- TailwindCSS**  
 **- shadcn/ui with custom “tweakcn” components**  
 **- Supabase Authentication** for login gating  
-**- Zod** for login form validation
+**- Zod** for form validation
 
 ## 🔐 Authentication Flow
 
@@ -64,5 +64,4 @@ npm run dev
 
 ## ⚠️ Disclaimer
 
-All company names, branding, logos, and related materials belong to COMAC.  
 This redesign is for educational and portfolio purposes only.

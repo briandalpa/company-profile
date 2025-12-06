@@ -7,134 +7,134 @@ import {
   Plane,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import c909Image from "@/assets/c909-aircraft.png";
-import c919Image from "@/assets/c919-aircraft.png";
-import c929Image from "@/assets/c929-aircraft.png";
+import a90Image from "@/assets/a90-aircraft.jpg";
+import a190Image from "@/assets/a190-aircraft.jpg";
+import a300Image from "@/assets/a300-aircraft.jpg";
 import Image from "next/image";
 
 export const metadata = {
-  title: "COMAC | Products & Services",
+  title: "AERVI | Products & Services",
 };
 
 export default function ProductsPage() {
   const products = [
     {
-      name: "COMAC C909",
-      image: c909Image,
+      name: "AERVI A90",
+      image: a90Image,
       description:
-        "C909 aircraft is the first short-medium range turbofan regional aircraft independently developed by China in accordance with international civil aviation regulations, it owns independent intellectual property right.",
+        "A90 is a next-generation regional jet engineered for short to medium-haul routes, optimized for fuel efficiency, low operating cost, and regional airport flexibility.",
       specifications: [
-        "Layout: 78 to 97 seats",
-        "Range: 2,225 to 3,700 kilometers",
-        "Type Certificate: December 30, 2014 (CAAC)",
-        "Production Certificate: July 9, 2017 (CAAC)",
+        "Seating: 80 to 98 passengers",
+        "Range: 2,800 to 3,900 kilometers",
+        "Cruise Speed: Mach 0.78",
+        "Primary Use: Regional commercial operations",
       ],
-      status: "In route operation with strong market performance",
+      status: "Active service with regional carriers",
     },
     {
-      name: "COMAC C919",
-      image: c919Image,
+      name: "AERVI A190",
+      image: a190Image,
       description:
-        "C919 aircraft is the first jet type trunk liner independently developed by China in accordance with international airworthiness standards and owning independent intellectual property right.",
+        "A190 is a narrow-body commercial aircraft designed to deliver high efficiency, passenger comfort, and advanced digital flight systems for high-frequency routes.",
       specifications: [
-        "Layout: 158 to 192 seats",
-        "Range: 4,075 to 5,555 kilometers",
-        "First Rollout: November 2, 2015",
-        "First Flight: May 5, 2017",
-        "Type Certificate: September 29, 2022 (CAAC)",
-        "First Delivery: December 9, 2022",
+        "Seating: 160 to 195 passengers",
+        "Range: 4,200 to 5,800 kilometers",
+        "Avionics: Full digital glass cockpit",
+        "Primary Use: Medium-haul commercial routes",
       ],
-      status: "Commercial operation since May 28, 2023",
+      status: "Certified and in commercial operation",
     },
     {
-      name: "COMAC C929",
-      image: c929Image,
+      name: "AERVI A300",
+      image: a300Image,
       description:
-        "The baseline version of C929 wide-body aircraft accommodates 280 seats, effectively meeting the global demand for international and regional air passenger transport.",
+        "A300 is a wide-body aircraft platform developed for long-haul international travel, focusing on cabin comfort, advanced composite materials, and reduced fuel burn.",
       specifications: [
-        "Layout: 280 seats (baseline)",
+        "Seating: 260 to 310 passengers",
         "Category: Wide-body aircraft",
-        "Purpose: International and regional transport",
+        "Focus: Long-range international transport",
       ],
-      status: "In development",
+      status: "Engineering validation phase",
     },
   ];
 
   const services = [
     {
       icon: GraduationCap,
-      title: "Training",
+      title: "Pilot & Crew Training",
       description:
-        "A comprehensive training portfolio of flight, maintenance, cabin crew, and operation control personnel, real-flight, in addition with dry and wet rental services for flight simulators.",
+        "Comprehensive training programs for pilots, flight crews, and technical teams using advanced simulators and real-world operational scenarios.",
       features: [
-        "Real Flight Service",
-        "Flight Training",
-        "Maintenance Training",
-        "Cabin Crew Training",
-        "Operation Control Personnel Training",
-        "Simulator Rental",
-        "Training Document",
+        "Full-flight simulators",
+        "Type rating programs",
+        "Cabin crew safety training",
+        "Maintenance certification courses",
+        "Digital training manuals",
       ],
       color: "secondary",
     },
     {
       icon: Plane,
-      title: "Flight and Operation Technical Support",
+      title: "Operational Technical Support",
       description:
-        "An offering of field service support, flight and operations technical support, flight operations software provision and technical advisory.",
+        "End-to-end technical assistance for airline operations, performance optimization, and real-time operational advisory services.",
       features: [
-        "Field Service Support",
-        "Airport Engineering",
-        "Flight Operation Technical Support",
-        "Flight Operation Technical Advisory",
-        "Flight and Operation Software",
-        "Flight and Operation Technical Publications",
+        "On-site field engineering",
+        "Performance analysis",
+        "Flight operations software",
+        "Technical documentation",
+        "24/7 engineering support",
       ],
       color: "secondary",
     },
     {
       icon: WrenchIcon,
-      title: "Spare Parts Support",
+      title: "Spare Parts & Logistics",
       description:
-        "We provide customers with 7x24 hours spares support to ensure customers can obtain the necessary spares for COMAC aircraft maintenance in time and resume normal flight.",
+        "Global spare parts supply and logistics support to minimize aircraft downtime and keep fleets operating reliably.",
       features: [
-        "AOG (Aircraft on Ground) Spares Support",
-        "Spares Business Support",
-        "7x24 hours spare parts support",
+        "AOG rapid response support",
+        "Global parts distribution",
+        "Component repair coordination",
       ],
       color: "secondary",
     },
     {
       icon: Settings,
-      title: "Maintenance Support",
+      title: "Maintenance & MRO Support",
       description:
-        "Dedicated to help with aircraft maintenance and modification, maintenance solutions, reliability and support, MRO checklist, GSE technical services, maintenance-related technical publications.",
+        "Maintenance engineering support for aircraft reliability, inspections, and structural modifications across the fleet lifecycle.",
       features: [
-        "Aircraft Maintenance",
-        "Maintenance Engineering Support",
-        "Ground Support Equipment Technical Service",
-        "Maintenance Technical Publications",
+        "Scheduled maintenance planning",
+        "Aircraft modification support",
+        "Ground equipment technical services",
+        "Maintenance documentation",
       ],
       color: "secondary",
     },
     {
       icon: LightbulbIcon,
-      title: "Diversified Solutions",
+      title: "Digital & Engineering Solutions",
       description:
-        "Solutions of industrial design, flight data analysis and customized solutions.",
+        "Advanced digital engineering services including flight data analytics and customized aircraft solutions.",
       features: [
-        "Industrial Design",
-        "Flight Data Analysis",
-        "Customized Solutions",
+        "Flight data monitoring",
+        "Predictive maintenance analytics",
+        "Custom aircraft configurations",
       ],
       color: "secondary",
     },
     {
       icon: PlaneTakeoff,
-      title: "FLYWIN",
+      title: "AERVI Nexus",
       description:
-        "A digital access to customer service platforms, platform products and engineering drawings.",
-      features: ["Intelligent Operation and Maintenance Services"],
+        "A digital customer platform providing access to technical resources, fleet data, and operational tools.",
+      features: [
+        "Fleet management dashboard",
+        "Real-time flight performance monitoring",
+        "Maintenance scheduling and tracking",
+        "Digital access to technical manuals",
+      ],
       color: "secondary",
     },
   ];
@@ -142,15 +142,15 @@ export default function ProductsPage() {
   const testimonials = [
     {
       quote:
-        "COMAC's C919 represents a significant leap in commercial aviation. The aircraft's efficiency and comfort have exceeded our expectations.",
-      author: "Zhang Wei",
-      role: "Fleet Manager, China Eastern Airlines",
+        "AERVI aircraft have transformed our regional network. The reliability and operating economics have exceeded industry expectations.",
+      author: "Daniel Tan",
+      role: "Fleet Operations Director, Pacific Skies Airways",
     },
     {
       quote:
-        "Working with COMAC on our fleet modernization has been exceptional. Their commitment to innovation and customer service is outstanding.",
-      author: "Li Ming",
-      role: "Operations Director, Air China",
+        "The engineering support from AERVI has been world-class. Their technical team operates with speed, precision, and real partnership.",
+      author: "Amelia Hart",
+      role: "Chief Technical Officer, Aurora Air Group",
     },
   ];
 
@@ -163,8 +163,9 @@ export default function ProductsPage() {
               Our Products
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Leading the future of commercial aviation with independently
-              developed aircraft meeting international airworthiness standards.
+              Advanced aircraft platforms built on precision engineering,
+              digital innovation, and globally recognized airworthiness
+              standards.
             </p>
           </div>
         </div>
@@ -176,19 +177,19 @@ export default function ProductsPage() {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="bg-linear-to-r from-primary/40 via-background group hover:shadow-xl transition-all duration-300 animate-fade-in border-border overflow-hidden"
+                className="bg-linear-to-r from-primary/10 via-background group hover:shadow-xl transition-all duration-300 animate-fade-in border-border overflow-hidden py-0"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative flex items-center justify-center h-80 md:h-auto overflow-hidden">
+                  <div className="relative h-80 md:h-auto overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name}
-                      className="object-contain w-full max-w-4xl group-hover:scale-105 transition-transform duration-700"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0" />
+                    <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent md:bg-linear-to-r" />
                     <div className="absolute bottom-6 left-6 md:hidden">
-                      <h3 className="text-3xl font-bold text-foreground">
+                      <h3 className="text-3xl font-bold text-white">
                         {product.name}
                       </h3>
                     </div>
@@ -240,9 +241,9 @@ export default function ProductsPage() {
               Our Services
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              COMAC offers specialized and efficient customer service for
-              civilian aircraft, customer is our top priority, we create value
-              for customers and aim to deliver a superior service experience.
+              End-to-end aviation support designed around reliability,
+              efficiency, and operational excellence — built to keep fleets
+              mission ready.
             </p>
           </div>
         </div>
@@ -295,7 +296,7 @@ export default function ProductsPage() {
               Client Testimonials
             </h2>
             <p className="text-lg text-muted-foreground">
-              Trusted by leading airlines worldwide
+              Trusted by aviation partners across the globe
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

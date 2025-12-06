@@ -5,9 +5,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { BlogForm, blogSchemaForm } from "@/validations/create-validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { INITIAL_CREATE_FORM } from "@/constants/blog-constant";
+import { redirect } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Create() {
+  const form = useForm<BlogForm>({
+    resolver: zodResolver(blogSchemaForm),
+    defaultValues: INITIAL_CREATE_FORM,
+  });
+
+  const onSubmit = (data: BlogForm) => {
+    console.log("Form is valid!", data);
+    toast.success("Blog posted!");
+    form.reset();
+    redirect("/blog");
+  };
+
   return (
     <div className="min-h- pt-10">
       <section className="py-16 lg:py-24">
@@ -23,7 +40,11 @@ export default function Create() {
 
           <Card>
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                {/* Title */}
                 <div className="space-y-2">
                   <Label htmlFor="title" className="text-base font-semibold">
                     Title
@@ -31,41 +52,58 @@ export default function Create() {
                   <Input
                     id="title"
                     placeholder="Enter your blog post title"
-                    className="text-lg border-border"
-                    required
+                    {...form.register("title")}
+                    className="bg-background border-border"
                   />
+                  {form.formState.errors.title && (
+                    <p className="text-destructive text-sm">
+                      {form.formState.errors.title.message}
+                    </p>
+                  )}
                 </div>
 
+                {/* Category */}
                 <div className="space-y-2">
                   <Label htmlFor="category" className="text-base font-semibold">
                     Category
                   </Label>
                   <Input
                     id="category"
-                    placeholder="e.g., Innovation, Technology, Safety"
-                    className="border-border"
-                    required
+                    placeholder="e.g., Innovation, Technology"
+                    {...form.register("category")}
+                    className="bg-background border-border"
                   />
+                  {form.formState.errors.category && (
+                    <p className="text-destructive text-sm">
+                      {form.formState.errors.category.message}
+                    </p>
+                  )}
                 </div>
 
+                {/* Content */}
                 <div className="space-y-2">
                   <Label htmlFor="content" className="text-base font-semibold">
                     Content
                   </Label>
                   <Textarea
                     id="content"
-                    placeholder="Write your blog post content here..."
-                    rows={15}
-                    className="resize-none border-border"
-                    required
+                    rows={10}
+                    placeholder="Write your blog content here..."
+                    {...form.register("content")}
+                    className="bg-background border-border"
                   />
+                  {form.formState.errors.content && (
+                    <p className="text-destructive text-sm">
+                      {form.formState.errors.content.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-1">
                   <Button
                     type="submit"
                     size="lg"
-                    className="flex-1 bg-primary hover:bg-primary/90 py-2"
+                    className="flex-1 bg-primary hover:bg-primary/90 py-2 hover:cursor-pointer"
                   >
                     Publish Post
                   </Button>
@@ -73,17 +111,17 @@ export default function Create() {
                     type="button"
                     size="lg"
                     variant="outline"
-                    // onClick={() => navigate("/blog")}
-                    className="flex-1 py-2"
+                    onClick={() => redirect("/")}
+                    className="flex-1 py-2 hover:cursor-pointer"
                   >
-                    <Link href="/">Cancel</Link>
+                    Cancel
                   </Button>
                 </div>
               </form>
             </CardContent>
           </Card>
 
-          <Card className="mt-8 bg-primary-light/20 border-primary/20">
+          <Card className="mt-8 bg-primary/10 border-primary/10">
             <CardContent className="p-6">
               <h3 className="font-semibold mb-2">Writing Tips</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">

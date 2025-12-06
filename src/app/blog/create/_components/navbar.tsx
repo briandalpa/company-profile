@@ -27,6 +27,7 @@ import { DarkmodeToggle } from "@/components/common/darkmode-toggle";
 import { signOut } from "@/actions/auth-action";
 
 export default function DashboardNavbar() {
+  const [mounted, setMounted] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const pathname = usePathname();
 
@@ -37,6 +38,12 @@ export default function DashboardNavbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -55,12 +62,12 @@ export default function DashboardNavbar() {
         isScrolled ? "bg-background shadow-sm" : "bg-transparent"
       )}
     >
-      <div className="flex items-center justify-between px-8 py-6">
+      <div className="flex items-center justify-between px-6 py-2">
         {/* Logo */}
         <div className="flex w-1/3 items-center">
           <Link href="/">
             <Image
-              src="/comac-logo.svg"
+              src="/aervi-logo.svg"
               alt="company logo"
               width={50}
               height={50}
@@ -113,53 +120,53 @@ export default function DashboardNavbar() {
 
             <SheetContent side="left" className="w-[280px] sm:w-[350px] p-3">
               {/* Mobile Navbar Content */}
-              <SheetTitle>
-                <div className="flex w-full items-center pl-4 py-4">
-                  <Link href="/">
-                    <Image
-                      src="/comac-logo.svg"
-                      alt="company logo"
-                      width={50}
-                      height={50}
-                    />
-                  </Link>
-                </div>
+              <div className="flex w-full items-center pl-4 py-2">
+                <Link href="/">
+                  <Image
+                    src="/aervi-logo.svg"
+                    alt="company logo"
+                    width={50}
+                    height={50}
+                  />
+                </Link>
+              </div>
 
-                {/* Nav Links */}
-                <div className="flex flex-col space-y-2">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      href={link.path}
-                      className={cn(
-                        "px-4 py-3 rounded-lg text-base font-medium transition-all",
-                        isActive(link.path)
-                          ? "bg-transparent text-primary font-bold dark:text-secondary"
-                          : "text-foreground hover:bg-accent"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
-                {/* Buttons + Dark Mode */}
-                <div className="mt-8 border-t pt-6 space-y-3 px-4">
-                  <Button
-                    className="w-full bg-destructive rounded-full"
-                    asChild
-                    onClick={() => signOut()}
+              {/* Nav Links */}
+              <div className="flex flex-col space-y-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    className={cn(
+                      "px-4 py-3 rounded-lg text-base font-medium transition-all",
+                      isActive(link.path)
+                        ? "bg-transparent text-primary font-bold dark:text-secondary"
+                        : "text-foreground hover:bg-accent"
+                    )}
                   >
-                    <Link href="/blog/create">
-                      <LogOut />
-                      Log Out
-                    </Link>
-                  </Button>
-                  <div className="absolute bottom-4 left-4">
-                    <DarkmodeToggle />
-                  </div>
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Buttons + Dark Mode */}
+              <div className="mt-8 border-t pt-6 space-y-3 px-4">
+                <Button
+                  className="w-full bg-destructive rounded-full"
+                  asChild
+                  onClick={() => signOut()}
+                >
+                  <Link href="/blog/create">
+                    <LogOut />
+                    Log Out
+                  </Link>
+                </Button>
+                <div className="absolute bottom-4 left-4">
+                  <DarkmodeToggle />
                 </div>
-              </SheetTitle>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-import heroImage from "@/assets/about-facility.jpg";
+import blogSustainableSkies from "@/assets/blog-sustainable-skies.jpg";
+import blogA90Engineering from "@/assets/blog-a90-engineering.jpg";
+import blogComposites from "@/assets/blog-composites.jpg";
+import blogDigitalTwins from "@/assets/blog-digital-twins.jpg";
+import blogSafety from "@/assets/blog-safety.jpg";
+import blogPartnerships from "@/assets/blog-partnerships.jpg";
 
 interface BlogPost {
   id: string;
@@ -23,69 +28,69 @@ export default function BlogPage() {
   const [blogs] = useState<BlogPost[]>([
     {
       id: "1",
-      title: "The Future of Sustainable Aviation",
+      title: "Sustainable Skies: The Next Era of Aviation",
       excerpt:
-        "Exploring COMAC's commitment to green aviation technology and our roadmap for reducing carbon emissions in commercial flight.",
-      author: "Dr. Chen Wei",
+        "How AERVI is reducing aviation's environmental footprint through smarter design, cleaner propulsion, and lightweight structures.",
+      author: "Adrian Lim",
       date: "2025-01-15",
       category: "Innovation",
       readTime: "5 min read",
-      photo: heroImage,
+      photo: blogSustainableSkies,
     },
     {
       id: "2",
-      title: "C919: A Milestone in Chinese Aerospace",
+      title: "Inside the A90: Engineering a New Regional Jet",
       excerpt:
-        "Behind the scenes of developing China's first domestically-produced large commercial aircraft and the journey to certification.",
-      author: "Li Xiaoming",
+        "A deep dive into the design philosophy, challenges, and breakthroughs behind AERVI's next-generation regional aircraft.",
+      author: "Marcus Tan",
       date: "2025-01-10",
       category: "Aircraft",
       readTime: "8 min read",
-      photo: heroImage,
+      photo: blogA90Engineering,
     },
     {
       id: "3",
-      title: "Advanced Materials in Modern Aircraft Design",
+      title: "Advanced Composites: Lighter, Stronger, Smarter",
       excerpt:
-        "How composite materials and advanced alloys are revolutionizing aircraft construction and improving performance.",
-      author: "Wang Jing",
+        "Why next-gen composite materials are transforming aircraft performance, durability, and fuel efficiency.",
+      author: "Rachel Koh",
       date: "2025-01-05",
       category: "Technology",
       readTime: "6 min read",
-      photo: heroImage,
+      photo: blogComposites,
     },
     {
       id: "4",
-      title: "Digital Twin Technology in Manufacturing",
+      title: "Digital Twins in Aerospace Manufacturing",
       excerpt:
-        "Leveraging digital twin technology to optimize our manufacturing processes and ensure superior quality control.",
-      author: "Zhang Ming",
+        "How virtual replicas of physical aircraft are helping AERVI optimize production, cut waste, and improve quality.",
+      author: "Daniel Chua",
       date: "2024-12-28",
       category: "Manufacturing",
       readTime: "7 min read",
-      photo: heroImage,
+      photo: blogDigitalTwins,
     },
     {
       id: "5",
-      title: "Safety First: Our Certification Process",
+      title: "Built for Safety: Inside Our Certification Journey",
       excerpt:
-        "An in-depth look at the rigorous testing and certification procedures that ensure every COMAC aircraft meets global safety standards.",
-      author: "Liu Hua",
+        "A look at AERVI's multi-layer testing framework and quality systems that ensure every aircraft meets global standards.",
+      author: "Sophia Lim",
       date: "2024-12-20",
       category: "Safety",
       readTime: "10 min read",
-      photo: heroImage,
+      photo: blogSafety,
     },
     {
       id: "6",
-      title: "Global Partnerships Driving Innovation",
+      title: "Global Partnerships That Power Progress",
       excerpt:
-        "How strategic international collaborations are accelerating technological advancement and market expansion.",
-      author: "Chen Li",
+        "How AERVI works with airlines, suppliers, and research institutions to push aerospace innovation forward.",
+      author: "Jason Ong",
       date: "2024-12-15",
       category: "Business",
       readTime: "5 min read",
-      photo: heroImage,
+      photo: blogPartnerships,
     },
   ]);
 
@@ -111,11 +116,11 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Blog & Insights
+              AERVI Insights
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Stay updated with the latest news, innovations, and insights from
-              COMAC&apos;s aerospace experts.
+              Perspectives on aircraft engineering, advanced manufacturing, and
+              the future of flight from the AERVI team.
             </p>
           </div>
         </div>
@@ -150,7 +155,7 @@ export default function BlogPage() {
                 <CardContent className="p-0">
                   <div className="h-48 bg-linear-to-br from-primary/20 to-accent-green/20 relative overflow-hidden">
                     <Image
-                      src={heroImage}
+                      src={blog.photo}
                       alt="airplane"
                       fill
                       className="object-cover"
@@ -199,7 +204,7 @@ export default function BlogPage() {
           {filteredBlogs.length === 0 && (
             <div className="text-center py-16">
               <p className="text-lg text-muted-foreground">
-                No blog posts found in this category.
+                No articles available in this category.
               </p>
             </div>
           )}
@@ -211,15 +216,17 @@ export default function BlogPage() {
           <Card className="bg-linear-to-br from-primary to-primary/80 border-0">
             <CardContent className="p-8 lg:p-12 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-4">
-                Want to Contribute?
+                Share Your Expertise
               </h2>
               <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                Share your insights and expertise with the aerospace community.
-                Create your own blog post and contribute to the conversation.
+                Contribute technical insights, research, and industry
+                perspectives to the AERVI knowledge hub and collaborative
+                aerospace ecosystem.
               </p>
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/blog/create">
-                  Write a Post <ArrowRight className="w-4 h-4" />
+                  Write an Article
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
             </CardContent>

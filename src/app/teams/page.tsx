@@ -1,81 +1,99 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
-import Image, { StaticImageData } from "next/image";
-import heImage from "@/assets/he-dongfeng.jpg";
-import shenImage from "@/assets/shen-bo.jpg";
-import xiaoImage from "@/assets/luo-xiao.jpg";
-import qiImage from "@/assets/qi-xuefeng.jpg";
-import yuImage from "@/assets/yu-shihai.jpg";
-import xingpingImage from "@/assets/luo-xingping.jpg";
-import liImage from "@/assets/li-ling.jpg";
-import zhangImage from "@/assets/zhang-xiaoguang.jpg";
-import wuImage from "@/assets/wu-wensheng.jpg";
+import Image from "next/image";
+import { Mail, MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
-export const metadata = {
-  title: "COMAC | Our Team",
-};
-
-interface CompanyManagement {
-  name: string;
-  role: string;
-  bio: string;
-  photo: StaticImageData;
+interface TeamMember {
+  name: {
+    first: string;
+    last: string;
+  };
+  email: string;
+  picture: {
+    large: string;
+  };
+  location: {
+    city: string;
+    country: string;
+  };
+  login: {
+    uuid: string;
+  };
 }
 
 export default function TeamsPage() {
-  const management: CompanyManagement[] = [
+  const [team, setTeam] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const response = await fetch("https://randomuser.me/api/?results=12");
+        const data = await response.json();
+        setTeam(data.results);
+      } catch {
+        toast.error("Error", {
+          description: "Failed to load team members. Please try again.",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeam();
+  }, []);
+
+  const teamData = [
     {
-      name: "He Dongfeng",
-      role: "Chairman & CPC Secretary",
-      bio: "Master of Engineering, leads COMAC as Chairman and Secretary of the Party Committee, elected as alternate member of the 19th CPC Central Committee.",
-      photo: heImage,
+      role: "Chief Executive Officer",
+      bio: "Strategic leader driving AERVI's vision to redefine commercial aviation through innovation, precision, and global collaboration.",
     },
     {
-      name: "Shen Bo",
-      role: "Vice Chairman & President",
-      bio: "Master of Engineering, serves as Vice Chairman, President and Deputy Secretary of the Party Committee of COMAC.",
-      photo: shenImage,
+      role: "Chief Technology Officer",
+      bio: "Architect of AERVI's digital aircraft platforms, advancing intelligent systems and next-generation flight technologies.",
     },
     {
-      name: "Luo Xiao",
-      role: "Board Director & Deputy Secretary",
-      bio: "Master of Science in Engineering, Deputy Secretary of the Party Committee and Director of COMAC.",
-      photo: xiaoImage,
+      role: "VP of Engineering",
+      bio: "Leading multidisciplinary engineering teams to deliver high-performance, scalable aircraft architectures.",
     },
     {
-      name: "Qi Xuefeng",
-      role: "Vice President",
-      bio: "Doctor of Engineering, Member of Standing Committee of the Party Committee and Vice President of COMAC.",
-      photo: qiImage,
+      role: "VP of Operations",
+      bio: "Optimizing smart manufacturing ecosystems to ensure efficiency, reliability, and production excellence.",
     },
     {
-      name: "Yu Shihai",
-      role: "Chief Financial Officer",
-      bio: "Bachelor of Economics, Member of Standing Committee of the Party Committee and CFO of COMAC.",
-      photo: yuImage,
+      role: "Lead Aircraft Designer",
+      bio: "Shaping AERVI's design philosophy with a focus on aerodynamic efficiency, passenger experience, and sustainability.",
     },
     {
-      name: "Luo Xingping",
-      role: "Secretary of Commission for Discipline Inspection",
-      bio: "Leads the Commission for Discipline Inspection and serves as Supervisory Attache of the State Committee of Supervisory.",
-      photo: xingpingImage,
+      role: "Senior Aerodynamics Engineer",
+      bio: "Specialist in airflow optimization and drag reduction for next-generation, fuel-efficient aircraft.",
     },
     {
-      name: "Li Ling",
-      role: "Vice President",
-      bio: "Master of Engineering, Member of Standing Committee of the Party Committee and Vice President of COMAC.",
-      photo: liImage,
+      role: "Manufacturing Director",
+      bio: "Driving implementation of digital factories and precision assembly techniques across AERVI facilities.",
     },
     {
-      name: "Zhang Xiaoguang",
-      role: "Vice President",
-      bio: "Doctor of Economics, Member of Standing Committee of the Party Committee and Vice President of COMAC.",
-      photo: zhangImage,
+      role: "Quality Assurance Lead",
+      bio: "Maintaining uncompromising standards through advanced testing, validation, and continuous improvement systems.",
     },
     {
-      name: "Wu Wensheng",
-      role: "Vice President",
-      bio: "Master of Engineering, Member of Standing Committee of the Party Committee and Vice President of COMAC.",
-      photo: wuImage,
+      role: "R&D Manager",
+      bio: "Accelerating breakthroughs in sustainable propulsion, lightweight materials, and future-ready aircraft systems.",
+    },
+    {
+      role: "Supply Chain Director",
+      bio: "Building resilient global supply networks focused on speed, transparency, and long-term partnerships.",
+    },
+    {
+      role: "Safety & Compliance Officer",
+      bio: "Embedding safety-first culture through rigorous certification strategy and risk management frameworks.",
+    },
+    {
+      role: "Customer Relations Manager",
+      bio: "Cultivating strategic airline and partner relationships to deliver long-term value and trust.",
     },
   ];
 
@@ -88,54 +106,75 @@ export default function TeamsPage() {
               Meet Our Team
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our talented professionals are dedicated to pushing the boundaries
-              of aerospace innovation and delivering excellence in every
-              project.
+              A multidisciplinary team of engineers, designers, and specialists
+              working together to advance next-generation aircraft and aerospace
+              technologies.
             </p>
           </div>
         </div>
       </section>
 
+      {/* Team Grid */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {management.map((member, index) => {
-              return (
+          {loading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {[...Array(12)].map((_, i) => (
+                <Card key={i} className="animate-pulse">
+                  <CardContent className="p-6">
+                    <div className="w-full aspect-square bg-muted rounded-xl mb-4" />
+                    <div className="h-4 bg-muted rounded mb-2" />
+                    <div className="h-3 bg-muted rounded w-2/3" />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {team.map((member, index) => (
                 <Card
-                  key={member.name}
-                  className="group pt-0 hover:shadow-2xl hover:border-primary/20 transition-all duration-500 animate-fade-in overflow-hidden"
+                  key={member.login.uuid}
+                  className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-border/50"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <CardContent className="p-0">
-                    <div className="relative overflow-hidden aspect-4/5">
+                  <CardContent className="p-6 space-y-4 pt-0">
+                    <div className="relative overflow-hidden rounded-xl aspect-square">
                       <Image
-                        src={member.photo}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={member.picture.large}
+                        alt={`${member.name.first} ${member.name.last}`}
+                        fill
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-linear-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-
-                    <div className="p-6 space-y-4">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold tracking-tight">
-                          {member.name}
-                        </h3>
-                        <p className="text-sm text-primary font-semibold leading-snug">
-                          {member.role}
-                        </p>
-                      </div>
-
-                      <div className="pt-2 border-t border-border/50">
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {member.bio}
-                        </p>
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-bold">
+                        {member.name.first} {member.name.last}
+                      </h3>
+                      <p className="text-sm text-primary dark:text-secondary font-medium">
+                        {teamData[index].role}
+                      </p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {teamData[index].bio}
+                      </p>
+                      <div className="pt-3 space-y-2 border-t border-border">
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <Mail className="w-4 h-4" />
+                          <span className="truncate">{member.email}</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <MapPin className="w-4 h-4" />
+                          <span>
+                            {member.location.city}, {member.location.country}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -144,13 +183,14 @@ export default function TeamsPage() {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl lg:text-4xl font-bold">Join Our Team</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We&apos;re always looking for talented individuals who share our
-              passion for aerospace innovation. If you&apos;re ready to make an
-              impact in the aviation industry, we&apos;d love to hear from you.
+              We&apos;re building the future of aerospace through precision
+              engineering, bold ideas, and world-class craftsmanship. If
+              you&apos;re driven to create what&apos;s next in aviation,
+              we&apos;d love to connect.
             </p>
             <div className="pt-4">
               <a
-                href="mailto:careers@comac.cc"
+                href="mailto:contact@aervi.aero"
                 className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
               >
                 View Open Positions
